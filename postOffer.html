@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Post Add</title>
+    <link rel="shortcut icon" type="image/png" href="img/icons/favicon.png"/>
+</head>
+<link rel="stylesheet" href="profilestyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+    <header>
+        <div class="container">
+        <div class="icon-bar">
+            <nav>
+                <ul>    
+                    <li><a href="home.php"><i class="fa fa-home"><br>Home</i></a></li>
+                    <li><a href="profile.php"><i class="fa fa-user-circle"><br>Profile</i></a></li>
+                    <li><a href="findteacher.php"><i class="fa fa-search"><br>Find Teachers</i></a></li>
+                    <li><a href="status.php"><i class="fa fa-users"><br>Status</i></a></li>
+                    <li><a href="message.php"><i class="fa fa-telegram"><br>Messages</i></a></li>
+                    <li><a href="logout.php"><i class="fa fa-sign-out"><br>Logout</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </header>
+    <div class="registrationbox">
+	<center><h1>Post Add</h1></center>
+	<form action="findteacher.php" method="post">
+        <p>Name</p>
+        <input type="text" name="name" placeholder="Enter Username" required="">
+        <p>Email</p>
+        <input type="text" name="email" placeholder="Email" required="">
+		<p>Location</p>
+		<input type="text" name="location" placeholder="Enter Location" required="">
+        <p>Phone</p>
+        <input type="tel" name="phone" placeholder="Enter 11 digit phone number. Eg:01XXXXXXXXX" pattern="[01]{2}[0-9]{9}" required="">
+		<p>Days per week</p>
+		<input type="number" name="days" placeholder="Number of days" required="" min="1" max="7">
+		<p>Fee(Tk.) / Day</p>
+		<input type="number" name="fee" placeholder="Enter fee" required="" min="1">
+            
+        <br>
+        <input type="submit" name="submit" value="Post Offer">
+	</form>
+    </div>
+</body>
+</html>
