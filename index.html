@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>We Care - Online Day care Finder</title>
+	<title>Kid Care - Online Day care Finder</title>
 	<link href="css/jquery.bxslider.css" rel="stylesheet" />
 	<link href="style.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet"/>
-	<link rel="shortcut icon" type="image/png"  href="pic.jpg"/>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="shortcut icon" type="image/png" href="img/icons/favicon.png"/>
+
 </head>
 <link rel="stylesheet" href="style.css">
 <body>
 	<header>
 		<div class="container">
 			<div id="branding">
-				<a href="index.html"><h1>We Care!</h1></a>
+				<a href="index.html"><h1>KID CARE!</h1></a>
 			</div>
 			<nav>
 				<ul>
-					<li><a href="adminlogin.php"><button class="button">Profile</button></a></li>
 					<li><a href="about.html"><button class="button">About Us</button></a></li>
 					<li><a href="FAQ.html"><button class="button">FAQ</button></a></li>
 					<li><a href="signinas.html"><button class="button">Sing In</button></a></li>
@@ -34,19 +29,59 @@
 	<section id="showcase">
       <div class="container">
         <h1>Your Kids, In Lovable Hands</h1>
-        <p style="font-size: 25px;">A platform to find perfect DayCare for your child</p>
+        <p style="font-size: 20px;">A platform to find perfect DayCare for your child</p>
       </div>
     </section>
+
+    <div class="slidershow middle">
+
+      <div class="slides">
+        <input type="radio" name="r" id="r1" checked>
+        <input type="radio" name="r" id="r2">
+        <input type="radio" name="r" id="r3">
+        <input type="radio" name="r" id="r4">
+        <div class="slide s1">
+          <img src="slider1.jpg" alt="">
+        </div>
+        <div class="slide">
+          <img src="slider2.jpg" alt="">
+        </div>
+        <div class="slide">
+          <img src="slider3.jpg" alt="">
+        </div>
+        <div class="slide">
+          <img src="slider4.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="navigation">
+        <label for="r1" class="bar"></label>
+        <label for="r2" class="bar"></label>
+        <label for="r3" class="bar"></label>
+        <label for="r4" class="bar"></label>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+      <script>
+      	function initMap() {
+      		var location = {lat: 23.815358 ,lng: 90.425881}; 
+      		var map = new google.maps.Map(document.getElementByID("map"), {zoom: 4, center: location});
+      		var marker = new google.maps.Marker({position: location, map: map});
+      	}
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXXiKUoY1WDBdnmX7FWAR7Y0mTMOL_WNg&callback=initMap"></script>
 	<footer>
 		<div id = "banner-wraper">
 		<div class = "icon-text">
 			<div class = "icon-text-text">
 				<ul class = "social">
-					<li><a href="mailto:kldg.hub@gmail.com"><i class="fa fa-envelope"></i></li>
-					<li><a href="https://www.facebook.com/Knowledge-Hub-183044329306419/?modal=admin_todo_tour"><i class="fa fa-facebook"></i></li>
-					<li><a href="https://plus.google.com/u/3/104021806162893705457"><i class= "fa fa-google-plus"></i></li>
-					<li><a href="https://twitter.com/knowled43631216"><i class= "fa fa-twitter"></i></li>
-					<li><a href="https://www.instagram.com/kldg_hub/?hl=en"><i class= "fa fa-instagram"></i></li>
+					<li><a href="#"><i class="fa fa-envelope"></i></li>
+					<li><a href="#"><i class="fa fa-facebook"></i></li>
+					<li><a href="#"><i class= "fa fa-google-plus"></i></li>
+					<li><a href="#"><i class= "fa fa-twitter"></i></li>
+					<li><a href="#"><i class= "fa fa-instagram"></i></li>
 					
 				</ul>
 			</div>
