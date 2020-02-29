@@ -33,43 +33,60 @@
 
         <div class="slidershow middle">
 
-      <div class="slides">
-        <input type="radio" name="r" id="r1" checked>
-        <input type="radio" name="r" id="r2">
-        <input type="radio" name="r" id="r3">
-        <input type="radio" name="r" id="r4">
-        <div class="slide s1">
-          <img src="slider1.jpg" alt="">
-        </div>
-        <div class="slide">
-          <img src="slider2.jpg" alt="">
-        </div>
-        <div class="slide">
-          <img src="slider3.jpg" alt="">
-        </div>
-        <div class="slide">
-          <img src="slider4.jpg" alt="">
-        </div>
-      </div>
+	      <div class="slides">
+	        <input type="radio" name="r" id="r1" checked>
+	        <input type="radio" name="r" id="r2">
+	        <input type="radio" name="r" id="r3">
+	        <input type="radio" name="r" id="r4">
+	       
+	        <div class="slide s1">
+	          <img src="slider1.jpg" alt="">
+	        </div>
+	        <div class="slide">
+	          <img src="slider2.jpg" alt="">
+	        </div>
+	        <div class="slide">
+	          <img src="slider3.jpg" alt="">
+	        </div>
+	        <div class="slide">
+	          <img src="slider4.jpg" alt="">
+	        </div>
+	      </div>
 
-      <div class="navigation">
-        <label for="r1" class="bar"></label>
-        <label for="r2" class="bar"></label>
-        <label for="r3" class="bar"></label>
-        <label for="r4" class="bar"></label>
-      </div>
-    </div>
+	      <div class="navigation">
+	        <label for="r1" class="bar"></label>
+	        <label for="r2" class="bar"></label>
+	        <label for="r3" class="bar"></label>
+	        <label for="r4" class="bar"></label>
+	      </div>
+	    </div>
 
-    <div id="map"></div>
+	    <div class="split">
+	    	<div class="row">
 
-      <script>
-      	function initMap() {
-      		var location = {lat: 23.815358 ,lng: 90.425881}; 
-      		var map = new google.maps.Map(document.getElementByID("map"), {zoom: 4, center: location});
-      		var marker = new google.maps.Marker({position: location, map: map});
-      	}
-      </script>
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXXiKUoY1WDBdnmX7FWAR7Y0mTMOL_WNg&callback=initMap"></script>
+	    		<div class="col1">
+		    		<h2>Find Your Day Care Here!!!</h2>
+		    		<p>Choose from more than 50 top rated Day Cares available through out the city and choose the perfect one for your child accourding to your preferred location</p>
+	    			
+	    		</div>
+
+	    		<div class="col2">
+
+	    			<iframe src="https://www.google.com.qa/maps/d/u/0/embed?mid=1faraea75iJwNz8o2ns_4sWXEg6nNgspW" width="840" height="480"></iframe>
+	    			
+	    		</div>
+	    		
+	    	</div>
+
+	    </div>
+
+	    <div class="registerlink">
+	    	<p>For more information and booking</p>
+			<a href="signup.html">~Click Here~</a>
+	    	
+	    </div>
+
+
       </div>
     </section>
 
