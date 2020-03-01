@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Post Review</title>
+    <link rel="shortcut icon" type="image/png" href="img/icons/favicon.png"/>
+</head>
+<link rel="stylesheet" href="profilestyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+    <body style="background-image: url(uploads/editprofile.jpg);">
+    
+    <header>
+        <div class="container">
+        <div class="icon-bar">
+           
+        </div>
+    </div>
+    </header>
+    <div class="registrationbox">
+	<center><h1>Post Review</h1></center>
+	<form action="postReview.php" method="post">
+        <p>Name of the DayCare</p>
+        <input type="text" name="name" placeholder="Enter Username" required="">
+		<p>Location</p>
+		<input type="text" name="location" placeholder="Enter Location" required="">
+        <p>Contact Number of the DayCare</p>
+        <input type="tel" name="phone" placeholder="Enter 11 digit phone number. Eg:01XXXXXXXXX" pattern="[01]{2}[0-9]{9}" required="">
+        <p>Review</p>
+		<input type="text" name="review" placeholder="Write your Review" required="">
+        <p>Rating</p>
+        <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+	
+            
+        <br>
+        <input type="submit" name="submit" value="Post Review">
+	</form>
+    </div>
+</body>
+</html>
