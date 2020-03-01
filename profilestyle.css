@@ -443,3 +443,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 	padding: 10px;
 	font-size: 15px;
 }
+
+.checked {
+  color: orange;
+}
