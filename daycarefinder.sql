@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2020 at 04:34 PM
+-- Generation Time: Mar 06, 2020 at 06:40 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -36,7 +36,20 @@ CREATE TABLE `daycare` (
   `current_capacity` int(11) DEFAULT NULL,
   `email` varchar(30) NOT NULL,
   `user_password` varchar(20) NOT NULL,
-  `fee` int(11) DEFAULT NULL
+  `fee` int(11) DEFAULT NULL,
+  `img_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `img_name` varchar(255) NOT NULL,
+  `img_dir` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -108,6 +121,12 @@ ALTER TABLE `daycare`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -140,6 +159,12 @@ ALTER TABLE `reviews`
 --
 ALTER TABLE `daycare`
   MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `messages`
