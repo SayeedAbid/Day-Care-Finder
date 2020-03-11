@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2020 at 06:40 AM
+-- Generation Time: Mar 11, 2020 at 05:15 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -29,13 +29,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `daycare` (
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `dayCare_name` varchar(50) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `location` varchar(50) NOT NULL,
   `current_capacity` int(11) DEFAULT NULL,
   `email` varchar(30) NOT NULL,
-  `user_password` varchar(20) NOT NULL,
+  `d_password` varchar(20) NOT NULL,
   `fee` int(11) DEFAULT NULL,
   `img_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -73,12 +72,12 @@ CREATE TABLE `messages` (
 --
 
 CREATE TABLE `offers` (
-  `postId` int(11) NOT NULL,
-  `dayCareName` varchar(50) NOT NULL,
-  `phone` varchar(15) NOT NULL,
-  `location` varchar(50) NOT NULL,
+  `postID` int(10) UNSIGNED NOT NULL,
+  `dayCare_name` varchar(50) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `location` varchar(50) DEFAULT NULL,
   `capacity` int(11) DEFAULT NULL,
-  `email` varchar(30) NOT NULL,
+  `email` varchar(30) DEFAULT NULL,
   `fee` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -93,7 +92,8 @@ CREATE TABLE `parent` (
   `user_name` varchar(50) NOT NULL,
   `u_password` varchar(20) DEFAULT NULL,
   `contact` varchar(15) DEFAULT NULL,
-  `location` varchar(50) DEFAULT NULL
+  `location` varchar(50) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -105,9 +105,25 @@ CREATE TABLE `parent` (
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
   `parent_name` varchar(50) NOT NULL,
-  `daycare` varchar(50) NOT NULL,
+  `daycare` varchar(30) NOT NULL,
   `star` int(11) NOT NULL,
-  `review` varchar(500) DEFAULT NULL
+  `review` varchar(500) DEFAULT NULL,
+  `p_email` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `u_password` varchar(20) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `location` varchar(50) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -118,7 +134,8 @@ CREATE TABLE `reviews` (
 -- Indexes for table `daycare`
 --
 ALTER TABLE `daycare`
-  ADD PRIMARY KEY (`user_id`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `img_id` (`img_id`);
 
 --
 -- Indexes for table `images`
@@ -136,7 +153,7 @@ ALTER TABLE `messages`
 -- Indexes for table `offers`
 --
 ALTER TABLE `offers`
-  ADD PRIMARY KEY (`postId`);
+  ADD PRIMARY KEY (`postID`);
 
 --
 -- Indexes for table `parent`
@@ -148,17 +165,20 @@ ALTER TABLE `parent`
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `daycare` (`daycare`),
+  ADD KEY `p_email` (`p_email`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `daycare`
---
-ALTER TABLE `daycare`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `images`
@@ -176,13 +196,36 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `offers`
 --
 ALTER TABLE `offers`
-  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `postID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `images`
+--
+ALTER TABLE `images`
+  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`id`) REFERENCES `daycare` (`img_id`);
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`daycare`) REFERENCES `daycare` (`email`),
+  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`p_email`) REFERENCES `parent` (`email`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
