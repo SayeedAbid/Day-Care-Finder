@@ -1,25 +1,29 @@
 <?php
 
-	error_reporting (E_ALL ^ E_NOTICE); 
-
-$username = $_POST['username'];	
-	$password = $_POST['password'];
-
 	$conn = new mysqli('localhost', 'root', '', 'daycaredb');
-	if ($conn->connect_error) {
-		die('Connection Failed : '.$conn->connect_error);
-	}
-	else{
-		$sql="SELECT * FROM parent WHERE username='$username' AND password ='$password'";
-$result=$conn->query($sql);
 
-if(!$row=$result->fetch_array()){
-	header("Location:login_error.html");
-	//echo '<script type="text/javascript"> alert("Error : Username or password incorrect.") </script>';
-}
-else{
-	$_SESSION['username']=$_POST['username'];
-	header("Location:userprofile.php");
-}
-}
+	if (isset($_POST['log'])) {
+		$username = mysqli_real_escape_string($conn, $_POST['username']);
+		$password = mysqli_real_escape_string($conn, $_POST['password']);
+
+		$password = md5($password);
+
+		if ($username!="" && $password!="") {
+
+			$sql = "SELECT * FROM parent WHERE user_name = '$username' AND u_password = '$password'";
+			$result = mysqli_query($conn, $sql);
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+			$count = mysqli_num_rows($result);
+			if ($count==1) {
+				header("Location:userprofile.html");
+				//echo "Login Successful";
+			}
+			else {
+				header("Location:index.html");
+				//echo "Login Failed";
+			}
+		}
+	}
+
 ?>

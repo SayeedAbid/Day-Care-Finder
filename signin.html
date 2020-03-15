@@ -24,11 +24,16 @@
 	<div class="loginbox">
 		<h1>Parent Login</h1>
 		<form action="signin.php" method="post">
-			<p>Username</p>
-			<input type="text" email="email" placeholder="Enter Email" required="">
-			<p>Password</p>
-			<input type="Password" name="password" placeholder="Enter Password" required="">
-			<input type="submit" name="" value="Login"><br>
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="text" class="form-control" id="username" name="username">
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" name="password">
+			</div>
+			<br>
+			<input type="submit" class="btn btn-primary" name="log"><br>
 			<a href="signup.html">Create new account</a><br>
 			<a href="index.html">Home</a>
 		</form>
