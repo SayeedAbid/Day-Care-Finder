@@ -14,7 +14,7 @@ $username = $_POST['username'];
 $result=$conn->query($sql);
 
 if(!$row=$result->fetch_array()){
-	header("Location:login_error.html");
+	header("Location:dlogin_error.html");
 	//echo '<script type="text/javascript"> alert("Error : Username or password incorrect.") </script>';
 }
 else{
