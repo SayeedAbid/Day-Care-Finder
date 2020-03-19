@@ -16,7 +16,7 @@
 
 			$count = mysqli_num_rows($result);
 			if ($count==1) {
-				header("Location:userprofile.html");
+				header("Location:userprofile.php");
 				//echo "Login Successful";
 			}
 			else {
