@@ -1,0 +1,127 @@
+<?php
+	
+	include 'dsignup.php';
+
+	if (isset($_GET['token'])) {
+		$token = $_GET['token'];
+		verifyUser($token);
+	}
+
+	else
+		exit();
+
+?>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Kid Care - Online Day care Finder</title>
+	<link href="css/jquery.bxslider.css" rel="stylesheet" />
+	<link href="style.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet"/>
+	<link rel="shortcut icon" type="image/png" href="img/icons/favicon.png"/>
+
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+	<header>
+		<div class="container">
+			<div id="branding">
+				<a href="index.html"><h1>KID CARE!</h1></a>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="about.html"><button class="button">About Us</button></a></li>
+					<li><a href="FAQ.html"><button class="button">FAQ</button></a></li>
+					<li><a href="signinas.html"><button class="button">Sing In</button></a></li>
+					<li><a href="registeras.html"><button class="button">Sing Up</button></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<section id="showcase">
+      <div class="container">
+        <h1>Your Kids, In Lovable Hands</h1>
+        <p style="font-size: 20px;">A platform to find perfect DayCare for your child</p>
+
+        <div class="slidershow middle">
+
+	      <div class="slides">
+	        <input type="radio" name="r" id="r1" checked>
+	        <input type="radio" name="r" id="r2">
+	        <input type="radio" name="r" id="r3">
+	        <input type="radio" name="r" id="r4">
+	       
+	        <div class="slide s1">
+	          <img src="slider1.jpg" alt="">
+	        </div>
+	        <div class="slide">
+	          <img src="slider2.jpg" alt="">
+	        </div>
+	        <div class="slide">
+	          <img src="slider3.jpg" alt="">
+	        </div>
+	        <div class="slide">
+	          <img src="slider4.jpg" alt="">
+	        </div>
+	      </div>
+
+	      <div class="navigation">
+	        <label for="r1" class="bar"></label>
+	        <label for="r2" class="bar"></label>
+	        <label for="r3" class="bar"></label>
+	        <label for="r4" class="bar"></label>
+	      </div>
+	    </div>
+
+	    <div class="split">
+	    	<div class="row">
+
+	    		<div class="col1">
+		    		<h2>Find Your Day Care Here!!!</h2>
+		    		<p>Choose from more than 50 top rated Day Cares available through out the city and choose the perfect one for your child accourding to your preferred location</p>
+	    			
+	    		</div>
+
+	    		<div class="col2">
+
+	    			<iframe src="https://www.google.com.qa/maps/d/u/0/embed?mid=1faraea75iJwNz8o2ns_4sWXEg6nNgspW" width="840" height="480"></iframe>
+	    			
+	    		</div>
+	    		
+	    	</div>
+
+	    </div>
+
+	    <div class="registerlink">
+	    	<p>For more information and booking</p>
+			<a href="signup.html">~Click Here~</a>
+	    	
+	    </div>
+
+
+      </div>
+    </section>
+
+    
+	<footer>
+		<div id = "banner-wraper">
+		<div class = "icon-text">
+			<div class = "icon-text-text">
+				<ul class = "social">
+					<li><a href="#"><i class="fa fa-envelope"></i></li>
+					<li><a href="#"><i class="fa fa-facebook"></i></li>
+					<li><a href="#"><i class= "fa fa-google-plus"></i></li>
+					<li><a href="#"><i class= "fa fa-twitter"></i></li>
+					<li><a href="#"><i class= "fa fa-instagram"></i></li>
+					
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+	</footer>
+
+</body>
+</html>
