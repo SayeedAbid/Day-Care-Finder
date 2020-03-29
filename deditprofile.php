@@ -58,7 +58,7 @@ include "uploads.php";
 
 
 
-		$sql = "UPDATE parent SET email = $email, user_name = username, u_password = password, phone = $phone, location = $address WHERE u_ID = $userID";
+		$sql = "UPDATE parent SET email = $email, user_name = username, u_password = password, phone = $phone, location = $address, current_capacity=$current_capacity, fee=$fee, img_id=$img_id WHERE u_ID = $userID";
 		$result=$conn->query($sql); 
 		header('location: daycareprofile.php');
 
