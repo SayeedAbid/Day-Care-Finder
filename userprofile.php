@@ -1,18 +1,30 @@
 <?php
-	session_start();
+	session_start(); 
+
+	include 'signin.php';
 
 	$conn = new mysqli('localhost', 'root', '', 'daycaredb');
 
-	$sql = "SELECT * FROM parent WHERE user_name = '$username'";
-	$result = $conn->query($sql);
-	$retrive = mysqli_fetch_array($result);
+	$sql = "SELECT * FROM parent WHERE u_ID=? LIMIT 1";
+	$result = $conn->prepare($sql);
+	$result->bind_param('i', $userID);
+	
 
-	$email = $retrive['email'];
-	$username = $retrive['username'];	
-	$phone = $retrive['phone'];	
-	$address = $retrive['address'];
+	if ($result->execute()) {
+		$retrieve = $result->get_result();
+		$data = $retrieve->fetch_assoc();
 
-	$_SESSION['$user_id']=$retrive['user_id'];
+		$email = $data['email'];
+		$username = $data['user_name'];	
+		$phone = $data['phone'];	
+		$address = $data['address'];
+
+		$_SESSION['$userID']=$data['userID'];
+	}
+	else
+		echo "Query couldn't get executed";
+
+	
 
 ?>
 
@@ -27,18 +39,18 @@
 	<link href="css/font-awesome.min.css" rel="stylesheet"/>
 	<link rel="shortcut icon" type="image/png" href="img/icons/favicon.png"/>
 
-</head>
+</head> 
 <link rel="stylesheet" href="profiles.css">
 <body>
 	<header>
 		<div class="container">
 			<div id="branding">
-				<a href="userprofile.html"><h1>Kid Care!</h1></a>
+				<a href="userprofile.php"><h1>Kid Care!</h1></a>
 			</div>
 			<nav>
 				<ul>
 					<li><a href="editprofile.html"><button class="button">Edit Profile</button></a></li>
-					<li><a href="DayCareInfo.html"><button class="button">DayCare Info</button></a></li>
+					<li><a href="findDayCare.php"><button class="button">DayCare Info</button></a></li>
 					<li><a href="postReview.html"><button class="button">Post Review</button></a></li>
 					<li><a href="Message.html"><button class="button">Message</button></a></li>
                     <li><a href="index.html"><button class="button">Sing Out</button></a></li>
