@@ -22,10 +22,9 @@
         $current_capacity = $data['current_capacity'];
         $fee = $data['fee'];
         $img_id = $data['img_id'];
-    
         
-
-		$_SESSION['$userID']=$data['userID'];
+    
+        $_SESSION['$userID']=$data['userID'];
 	}
 	else
 		echo "Query couldn't get executed";
@@ -73,26 +72,25 @@
   <img src="uploads/userpic.png" alt="Rusafa" style="width:35%">
      <body style=" background-color: #000000">
     
-  <h1><?php echo $username; ?></h1>
-  <p class="title">DayCare</p>
+ <h1><?php echo $username; ?></h1>
+  <p class="title">Day Care</p>
   <p><?php echo $address ?></p>
     <p><?php echo $phone; ?></p>
     <p><?php echo $email; ?></p>
     <p><?php echo $current_capacity; ?></p>
     <p><?php echo $fee; ?></p>
-    <p><?php echo $img_id; ?></p>
+         
+     
+         
+         
   <a href="#"><i class="fa fa-Email"></i></a>
   <a href="#"><i class="fa fa-linkedin"></i></a>
   <a href="#"><i class="fa fa-facebook"></i></a>
-   <form action="upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file">
-            <button type="submit" name="submit">UPLOAD</button>
-        
-        
-        </form> 
+  <p><button>Contact</button></p>
 </div>
        
     
 
 </body>
 </html>
+
