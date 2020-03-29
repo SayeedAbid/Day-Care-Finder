@@ -1,5 +1,7 @@
 <?php
 
+include "uploads.php";
+
 	error_reporting (E_ALL ^ E_NOTICE); 
 
 	$conn = new mysqli('localhost', 'root', '', 'daycaredb'); 
@@ -47,6 +49,10 @@
 		$password = $_POST['password'];
 		$phone = $_POST['phone'];	
 		$address = $_POST['address'];
+        $current_capacity = $_POST['current_capacity'];
+        $fee = $_POST['fee'];
+        $img_id = $_POST['img_id'];
+        
 
 		$password = md5($password);
 
