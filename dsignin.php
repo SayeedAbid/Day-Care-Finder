@@ -4,7 +4,7 @@
 
 	if (isset($_POST['log'])) {
 
-	    $userID = $_POST['userID'];
+	    $userID = $_POST['userId'];
 	    $password = $_POST['password'];
 
 	    $password = md5($password);
@@ -24,7 +24,7 @@
 		            $_SESSION['userID'] = $user['userID'];
 	                $_SESSION['message'] = 'You are logged in!';
 	                $_SESSION['type'] = 'alert-success';
-	                header('location: userprofile.php');
+	                header('location: Daycareprofile.php');
 	                exit(0);	
 	        	}
 	        	else
