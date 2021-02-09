@@ -1,11 +1,12 @@
+
 <?php
 	session_start(); 
 
-	include 'signin.php';
+	include 'dsignin.php';
 
 	$conn = new mysqli('localhost', 'root', '', 'daycaredb');
 
-	$sql = "SELECT * FROM daycare WHERE user_id=? LIMIT 1";
+	$sql = "SELECT * FROM daycare WHERE u_ID=? LIMIT 1";
 	$result = $conn->prepare($sql);
 	$result->bind_param('i', $userID);
 	
@@ -18,8 +19,12 @@
 		$username = $data['user_name'];	
 		$phone = $data['phone'];	
 		$address = $data['address'];
-
-		$_SESSION['$user_id']=$data['userID'];
+        $current_capacity = $data['current_capacity'];
+        $fee = $data['fee'];
+        $img_id = $data['img_id'];
+        
+    
+        $_SESSION['$userID']=$data['userID'];
 	}
 	else
 		echo "Query couldn't get executed";
@@ -27,6 +32,7 @@
 	
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -51,8 +57,10 @@
 				<ul>
 					<li><a href="postOffer.html"><button class="button">Post Offer</button></a></li>
 					<li><a href="deditprofile.html"><button class="button">Edit Profile</button></a></li>
-					<li><a href="message.php"><button class="button">Message</button></a></li>
+					<li><a href="Message.html"><button class="button">Message</button></a></li>
                     <li><a href="index.html"><button class="button">Sing Out</button></a></li>
+                    
+            
                     
 				</ul>
 			</nav>
@@ -64,11 +72,17 @@
   <img src="uploads/userpic.png" alt="Rusafa" style="width:35%">
      <body style=" background-color: #000000">
     
-  <h1>Day Care Name</h1>
-  <p class="title">Location</p>
-  <p>Current Capacity</p>
-    <p>Monthly Fee</p>
-    <p>Phone Number</p>
+ <h1><?php echo $username; ?></h1>
+  <p class="title">Day Care</p>
+  <p><?php echo $address ?></p>
+    <p><?php echo $phone; ?></p>
+    <p><?php echo $email; ?></p>
+    <p><?php echo $current_capacity; ?></p>
+    <p><?php echo $fee; ?></p>
+         
+     
+         
+         
   <a href="#"><i class="fa fa-Email"></i></a>
   <a href="#"><i class="fa fa-linkedin"></i></a>
   <a href="#"><i class="fa fa-facebook"></i></a>
@@ -79,3 +93,4 @@
 
 </body>
 </html>
+
