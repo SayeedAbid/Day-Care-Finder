@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Post Ad</title>
+    <link rel="shortcut icon" type="image/png" href="img/icons/favicon.png"/>
+</head>
+<link rel="stylesheet" href="profilestyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+    <body style="background-image: url(uploads/editprofile.jpg);">
+    
+    <header>
+        <div class="container">
+        <div class="icon-bar">
+           
+        </div>
+    </div>
+    </header>
+    <div class="registrationbox">
+	<center><h1>Post Ad</h1></center>
+	<form action="postOffer.php" method="post">
+        
+        <div class="form-group">
+                <label for="userName">Day Care Name*</label>
+                <input type="text" class="form-control" id="userName" placeholder="Enter Day Care name" name="userName" required="">
+            </div>
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" required="">
+            </div>
+            <div class="form-group">
+                <label for="location">Location*</label>
+                <input type="text" class="form-control" id="location" placeholder="Enter your location" name="location" required="">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone*</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter 11 digit phone number. Eg:01XXXXXXXXX" pattern="[01]{2}[0-9]{9}" name="phone" required="">
+            </div>
+            <div class="form-group">
+                <label for="capacity">Current Capacity*</label>
+                <input type="number" class="form-control" id="capacity" placeholder="Enter current capacity " name="capacity" required="">
+            </div>
+            <div class="form-group">
+                <label for="age">Age Specification</label>
+                <input type="text" class="form-control" id="age" placeholder="Enter specific age. Ex: 2-5" name="age">
+            </div>
+            <div class="form-group">
+                <label for="fee">Fee (per month)*</label>
+                <input type="number" class="form-control" id="fee" placeholder="Enter your fee (per month)" name="fee" required="">
+            </div>
+            <p>* fileds are required</p>
+            <br>
+            <input type="submit" class="btn btn-primary" name="submit"><br>
+
+        <center><a href="Daycareprofile.html">Back</a></center>
+	</form>
+    </div>
+</body>
+</html>
