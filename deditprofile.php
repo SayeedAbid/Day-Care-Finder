@@ -1,9 +1,12 @@
 <?php
 
+	
 	error_reporting (E_ALL ^ E_NOTICE); 
 
 	$conn = new mysqli('localhost', 'root', '', 'daycaredb'); 
 
+	session_start();
+	$userID=$_SESSION['u_ID'];
 
 	if (isset($_POST['log'])) {
 
@@ -12,7 +15,7 @@
 
 	    $password = md5($password);
 
-        $query = "SELECT * FROM daycare WHERE u_ID=? AND u_password=? LIMIT 1";
+        $query = "SELECT * FROM daycare WHERE u_ID=userID AND u_password=password LIMIT 1";
         $stmt = $conn->prepare($query);
         $stmt->bind_param('is', $userID, $password);
 
@@ -21,39 +24,33 @@
 	        	$result = $stmt->get_result();
 		        $user = $result->fetch_assoc();
 		 	    //$stmt->close();
-		 	    header('location: deditprofile.html');
+		 	    header('location: editprofile.html');
 
 		 	    $stmt->close();
 		 	    $conn->close();
 		 	}
 
-		 	/*else { // if password does not match
-	                $errors['login_fail'] = "Wrong userID / password";
-	        }*/
 	}
 
 
-	if (isset($_POST['update'])) {  
+	if (isset($_POST['update'])) {
 
 
-		$email = $_POST['email'];
-		$username = $_POST['username'];	
-		$password = $_POST['password'];
-		$phone = $_POST['phone'];	
-		$address = $_POST['address'];
-        $current_capacity = $_POST['current_capacity'];
-        $fee = $_POST['fee'];
-        $img_id = $_POST['img_id'];
-        
-        
+		$email = mysqli_real_escape_string($conn,$_POST['email']);
+		$username = mysqli_real_escape_string($conn,$_POST['username']);	
+		$password = mysqli_real_escape_string($conn,$_POST['password']);
+		$phone = mysqli_real_escape_string($conn,$_POST['phone']);	
+		$current_capacity = mysqli_real_escape_string($conn,$_POST['current_capacity']);
+		$fee = mysqli_real_escape_string($conn,$_POST['fee']);
+		$location = mysqli_real_escape_string($conn,$_POST['location']);
 
 		$password = md5($password);
 
 
 
-		$sql = "UPDATE parent SET email = $email, user_name = username, u_password = password, phone = $phone, location = $address, current_capacity=$current_capacity, fee=$fee, img_id=$img_id WHERE u_ID = $userID";
+		$sql = "UPDATE daycare SET email = $email, user_name = username, u_password = password, phone = $phone, location = $location, current_capacity = $current_capacity, fee = $fee WHERE u_ID = $userID";
 		$result=$conn->query($sql); 
-		header('location: daycareprofile.php');
+		header('location: Daycareprofile.php');
 
 		$sql->close();
 		$conn->close();
@@ -69,15 +66,3 @@
 	
 
 ?>
-
-<!DOCTYPE html>
-
-  <form action="upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file">
-            <button type="submit" name="submit">UPLOAD</button>
-        
-        
-        </form>  
-	
-    </html>
-    
