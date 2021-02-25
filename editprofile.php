@@ -1,9 +1,12 @@
 <?php
 
+	
 	error_reporting (E_ALL ^ E_NOTICE); 
 
 	$conn = new mysqli('localhost', 'root', '', 'daycaredb'); 
 
+	session_start();
+	$userID=$_SESSION['u_ID'];
 
 	if (isset($_POST['log'])) {
 
@@ -12,7 +15,7 @@
 
 	    $password = md5($password);
 
-        $query = "SELECT * FROM parent WHERE u_ID=? AND u_password=? LIMIT 1";
+        $query = "SELECT * FROM parent WHERE u_ID=userID AND u_password=password LIMIT 1";
         $stmt = $conn->prepare($query);
         $stmt->bind_param('is', $userID, $password);
 
@@ -27,26 +30,17 @@
 		 	    $conn->close();
 		 	}
 
-		 	/*else { // if password does not match
-	                $errors['login_fail'] = "Wrong userID / password";
-	        }*/
 	}
 
-    /*else {
-            $_SESSION['message'] = "Database error. Login failed!";
-            $_SESSION['type'] = "alert-danger";
-    }*/
+
+	if (isset($_POST['update'])) {
 
 
-
-	if (isset($_POST['update'])) {  
-
-
-		$email = $_POST['email'];
-		$username = $_POST['username'];	
-		$password = $_POST['password'];
-		$phone = $_POST['phone'];	
-		$address = $_POST['address'];
+		$email = mysqli_real_escape_string($conn,$_POST['email']);
+		$username = mysqli_real_escape_string($conn,$_POST['username']);	
+		$password = mysqli_real_escape_string($conn,$_POST['password']);
+		$phone = mysqli_real_escape_string($conn,$_POST['phone']);	
+		$address = mysqli_real_escape_string($conn,$_POST['address']);
 
 		$password = md5($password);
 
