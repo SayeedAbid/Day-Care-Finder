@@ -6,7 +6,7 @@
 	$conn = new mysqli('localhost', 'root', '', 'daycaredb'); 
 
 	session_start();
-	$userID=$_SESSION['u_ID'];
+	$userID = $_SESSION['u_ID'];
 
 	if (isset($_POST['log'])) {
 
